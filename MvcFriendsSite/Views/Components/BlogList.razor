@@ -1,5 +1,9 @@
 ﻿
 @using MvcFriendsSite.Models;
+@using Microsoft.AspNetCore.Identity
+@using MvcFriendsSite.Areas.Identity.Data
+
+
 <h3>Blog List</h3>
 
 <table class="table">
@@ -36,5 +40,7 @@
 
     [Parameter]
     public IEnumerable<BlogModel> ModelList { get; set; }
+    [Parameter]
+    public string Url { get; set; }
 
 }

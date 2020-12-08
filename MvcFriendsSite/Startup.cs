@@ -26,6 +26,7 @@ namespace MvcFriendsSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
 
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -59,6 +60,7 @@ namespace MvcFriendsSite
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -66,6 +68,10 @@ namespace MvcFriendsSite
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapBlazorHub();
+                endpoints.MapRazorPages();
+
+
             });
         }
     }

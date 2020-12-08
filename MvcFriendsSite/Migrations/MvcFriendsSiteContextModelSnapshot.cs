@@ -130,7 +130,7 @@ namespace MvcFriendsSite.Migrations
             modelBuilder.Entity("MvcFriendsSite.Models.BlogModel", b =>
                 {
                     b.HasOne("MvcFriendsSite.Models.UserModel", "Author")
-                        .WithMany()
+                        .WithMany("Blogs")
                         .HasForeignKey("AuthorId");
 
                     b.Navigation("Author");
@@ -157,6 +157,8 @@ namespace MvcFriendsSite.Migrations
 
             modelBuilder.Entity("MvcFriendsSite.Models.UserModel", b =>
                 {
+                    b.Navigation("Blogs");
+
                     b.Navigation("userToSocialFK");
                 });
 #pragma warning restore 612, 618
